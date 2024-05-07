@@ -4,17 +4,11 @@ class Solution:
         for value in range(1, n ** 2 + 1):
             yield value
 
+
     def generateMatrix(self, n: int) -> list[list[int]]:
-        d = self.digit(n)
-        if n == 1:
-            k = 1
-        elif n == 2:
-            k = 1
-        elif n == 3:
-            k = 2
-        else:
-            k = n - 2
         lst = [[None for _ in range(n)] for _ in range(n)]
+        d = self.digit(n)
+        k = 1 if n <= 2 else 2 if n == 3 else n - 2
 
         for x in range(k):
             for i in range(x, n-x):
@@ -30,4 +24,4 @@ class Solution:
 
 
 a = Solution()
-print(*a.generateMatrix(10), sep='\n')
+print(*a.generateMatrix(3), sep='\n')
